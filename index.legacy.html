@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eng. Mohamad — Solution Architect Manager</title>
+<meta name="description" content="الموقع الشخصي لمهندس محمد — Solution Architect Manager. تعرّف على خبراتي واحجز جلسة في الوقت المناسب لك.">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%230B1322"/><text x="32" y="43" font-size="30" text-anchor="middle" fill="%232DD4BF" font-family="Arial" font-weight="700">M</text></svg>'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070C16; --bg2:#0B1322; --card:#0E1626; --card2:#111B2E;
+  --line:rgba(148,163,184,.15); --line2:rgba(148,163,184,.28);
+  --txt:#E8EDF6; --mut:#8FA0B8; --acc:#2DD4BF; --acc2:#5EEAD4; --accD:#05221D;
+  --gold:#FBBF24; --red:#F87171; --blue:#60A5FA;
+  --r:16px; --shadow:0 18px 50px -20px rgba(0,0,0,.55);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
+body{
+  font-family:"IBM Plex Sans Arabic","Segoe UI",Tahoma,Arial,sans-serif;
+  background:var(--bg); color:var(--txt); line-height:1.7; min-height:100vh;
+  background-image:
+    linear-gradient(rgba(148,163,184,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(148,163,184,.045) 1px,transparent 1px);
+  background-size:44px 44px;
+}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:
+  radial-gradient(900px 480px at 85% -10%,rgba(45,212,191,.13),transparent 60%),
+  radial-gradient(700px 460px at 8% 108%,rgba(96,165,250,.09),transparent 60%);}
+body.locked{overflow:hidden}
+::selection{background:rgba(45,212,191,.3)}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+input,select,textarea{font-family:inherit;font-size:.95rem;color:var(--txt);background:var(--bg2);
+  border:1px solid var(--line);border-radius:12px;padding:10px 14px;width:100%;outline:none;transition:border-color .2s,box-shadow .2s}
+input:focus,select:focus,textarea:focus{border-color:var(--acc);box-shadow:0 0 0 3px rgba(45,212,191,.14)}
+input[type="checkbox"]{width:auto;accent-color:var(--acc)}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.container{max-width:1080px;margin-inline:auto;padding-inline:22px}
+.mut{color:var(--mut)} .small{font-size:.85rem}
+
+/* ── Navbar ── */
+#topnav{position:sticky;top:0;z-index:50;background:rgba(7,12,22,.82);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.05rem;letter-spacing:.2px}
+.brand-dot{width:10px;height:10px;border-radius:3px;background:linear-gradient(135deg,var(--acc),var(--blue));box-shadow:0 0 12px rgba(45,212,191,.7)}
+.nav-links{display:flex;gap:22px;font-size:.95rem;color:var(--mut)}
+.nav-links a:hover{color:var(--acc)}
+.nav-cta{display:flex;align-items:center;gap:10px}
+.icon-btn{display:grid;place-items:center;width:38px;height:38px;border-radius:11px;border:1px solid var(--line);color:var(--mut);transition:.2s}
+.icon-btn:hover{color:var(--acc);border-color:var(--acc)}
+
+/* ── Buttons ── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:13px;
+  padding:13px 26px;font-weight:700;font-size:1rem;background:linear-gradient(135deg,var(--acc),var(--acc2));color:var(--accD);
+  transition:transform .15s,box-shadow .2s;box-shadow:0 10px 26px -10px rgba(45,212,191,.55)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 16px 32px -10px rgba(45,212,191,.6)}
+.btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line2);box-shadow:none}
+.btn.ghost:hover{border-color:var(--acc);color:var(--acc)}
+.btn.small{padding:9px 18px;font-size:.9rem;border-radius:11px}
+.btn.tiny{padding:6px 13px;font-size:.8rem;border-radius:9px}
+.btn.danger{background:transparent;color:var(--red);border:1px solid rgba(248,113,113,.4);box-shadow:none}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+/* ── Hero ── */
+.hero{padding:96px 0 72px;position:relative}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:600;color:var(--acc2);
+  border:1px solid rgba(45,212,191,.35);background:rgba(45,212,191,.07);padding:7px 16px;border-radius:999px;margin-bottom:22px}
+.hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--acc);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(45,212,191,.5)}50%{box-shadow:0 0 0 6px rgba(45,212,191,0)}}
+.hero-flex{display:flex;align-items:center;gap:40px;flex-wrap:wrap}
+.hero-txt{flex:1;min-width:300px}
+.hero h1{font-size:clamp(2rem,5vw,3.1rem);font-weight:700;line-height:1.35;margin-bottom:18px}
+.grad{background:linear-gradient(90deg,var(--acc),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.sub{color:var(--mut);font-size:1.1rem;max-width:560px;margin-bottom:30px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.avail-note{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;color:var(--gold);
+  border:1px dashed rgba(251,191,36,.4);padding:7px 14px;border-radius:999px}
+.avatar{width:150px;height:150px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;position:relative;
+  background:conic-gradient(from 200deg,var(--acc),var(--blue),var(--acc));padding:4px;box-shadow:var(--shadow)}
+.avatar-in{width:100%;height:100%;border-radius:50%;background:var(--card2);display:grid;place-items:center;
+  font-size:3.4rem;font-weight:700;color:var(--acc)}
+.stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:52px}
+.stat{flex:1;min-width:150px;background:linear-gradient(180deg,var(--card),transparent);border:1px solid var(--line);
+  border-radius:var(--r);padding:18px 22px}
+.stat b{display:block;font-size:1.7rem;color:var(--acc)}
+.stat span{font-size:.88rem;color:var(--mut)}
+
+/* ── Sections ── */
+section{padding:74px 0}
+.kicker{color:var(--acc);font-weight:600;font-size:.88rem;margin-bottom:8px}
+.sec-head{margin-bottom:36px;max-width:640px}
+.sec-head h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:700;margin-bottom:10px}
+.sec-head p{color:var(--mut)}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.srv{background:linear-gradient(180deg,var(--card),rgba(14,22,38,.4));border:1px solid var(--line);border-radius:var(--r);
+  padding:26px 24px;transition:transform .2s,border-color .2s}
+.srv:hover{transform:translateY(-4px);border-color:rgba(45,212,191,.45)}
+.srv .ic{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;color:var(--acc);
+  background:rgba(45,212,191,.09);border:1px solid rgba(45,212,191,.25);margin-bottom:16px}
+.srv h3{font-size:1.08rem;margin-bottom:8px}
+.srv p{color:var(--mut);font-size:.93rem}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:8px 18px;font-size:.9rem;color:var(--mut);
+  background:rgba(17,27,46,.5);transition:.2s}
+.chip:hover{border-color:var(--acc);color:var(--acc)}
+.tl{border-inline-start:2px solid var(--line);padding-inline-start:28px;display:grid;gap:28px}
+.tl-item{position:relative}
+.tl-item::before{content:"";position:absolute;inset-inline-start:-35px;top:8px;width:12px;height:12px;border-radius:50%;
+  background:var(--bg);border:3px solid var(--acc)}
+.tl-item .when{font-size:.82rem;color:var(--acc);font-weight:600}
+.tl-item h3{font-size:1.05rem;margin:2px 0}
+.tl-item p{color:var(--mut);font-size:.93rem;max-width:560px}
+
+/* ── Booking ── */
+.book-card{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);
+  border-radius:20px;padding:28px;box-shadow:var(--shadow)}
+.book-meta{display:flex;gap:16px;flex-wrap:wrap;color:var(--mut);font-size:.88rem;margin-bottom:20px;
+  padding-bottom:18px;border-bottom:1px dashed var(--line)}
+.book-meta b{color:var(--acc2);font-weight:600}
+.day-row{display:flex;gap:10px;overflow-x:auto;padding-bottom:10px;margin-bottom:18px}
+.day-chip{min-width:92px;flex-shrink:0;text-align:center;padding:11px 8px;border-radius:14px;border:1px solid var(--line);
+  background:transparent;color:var(--txt);transition:.18s}
+.day-chip:hover:not(:disabled){border-color:var(--line2)}
+.day-chip.sel{border-color:var(--acc);background:rgba(45,212,191,.09);box-shadow:0 0 0 3px rgba(45,212,191,.12)}
+.day-chip:disabled{opacity:.35;cursor:not-allowed}
+.dc-wd{display:block;font-size:.78rem;color:var(--mut)}
+.day-chip.sel .dc-wd{color:var(--acc2)}
+.dc-num{display:block;font-size:1.35rem;font-weight:700;line-height:1.4}
+.dc-mo{display:block;font-size:.75rem;color:var(--mut)}
+.dc-cnt{display:block;font-size:.7rem;color:var(--gold);margin-top:3px}
+.day-chip:disabled .dc-cnt{color:var(--mut)}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:10px}
+.slot{padding:11px 6px;border-radius:12px;border:1px solid var(--line);background:var(--bg2);
+  font-size:.95rem;font-weight:600;text-align:center;transition:.15s}
+.slot:hover{border-color:var(--acc);color:var(--acc);transform:translateY(-2px)}
+.hint{color:var(--mut);font-size:.95rem;padding:18px 4px}
+
+/* ── FAQ ── */
+details{border:1px solid var(--line);border-radius:14px;background:rgba(14,22,38,.5);margin-bottom:12px;overflow:hidden}
+summary{cursor:pointer;padding:16px 20px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--acc);font-size:1.3rem;font-weight:400}
+details[open] summary::after{content:"−"}
+details .ans{padding:0 20px 18px;color:var(--mut);font-size:.94rem}
+
+/* ── Footer ── */
+footer{border-top:1px solid var(--line);padding:28px 0;margin-top:30px}
+.foot-in{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;color:var(--mut);font-size:.88rem}
+.foot-in a{color:var(--mut)} .foot-in a:hover{color:var(--acc)}
+
+/* ── Admin ── */
+#adminView{padding:40px 0 80px;min-height:80vh}
+.admin-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+.admin-top h2{font-size:1.6rem}
+.stats3{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-bottom:26px}
+.stat3{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px}
+.stat3 b{display:block;font-size:1.6rem;color:var(--acc)}
+.stat3.warn b{color:var(--gold)}
+.tabbar{display:flex;gap:8px;border-bottom:1px solid var(--line);margin-bottom:24px;overflow-x:auto}
+.tab{background:none;border:none;color:var(--mut);font-size:.95rem;font-weight:600;padding:11px 16px;
+  border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap}
+.tab:hover{color:var(--txt)}
+.tab.on{color:var(--acc);border-color:var(--acc)}
+.day-edit{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:12px;transition:opacity .2s}
+.day-edit.off{opacity:.55}
+.de-head{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.de-name{font-weight:700}
+.de-name small{display:block;font-weight:400;color:var(--mut);font-size:.8rem}
+.de-ranges{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px}
+.range-row{display:flex;align-items:center;gap:8px}
+.range-row input[type="time"]{width:120px;padding:8px 10px}
+.range-row .arr{color:var(--mut)}
+.xbtn{background:none;border:1px solid var(--line);color:var(--mut);width:34px;height:34px;border-radius:9px;font-size:.85rem;transition:.15s}
+.xbtn:hover{color:var(--red);border-color:var(--red)}
+.switch{position:relative;display:inline-block;width:46px;height:26px;flex-shrink:0}
+.switch input{opacity:0;width:0;height:0}
+.sl{position:absolute;inset:0;background:var(--bg2);border:1px solid var(--line2);border-radius:999px;transition:.2s;cursor:pointer}
+.sl::before{content:"";position:absolute;height:18px;width:18px;inset-inline-start:3px;top:3px;border-radius:50%;background:var(--mut);transition:.2s}
+.switch input:checked + .sl{background:rgba(45,212,191,.25);border-color:var(--acc)}
+.switch input:checked + .sl::before{transform:translateX(-20px);background:var(--acc)}
+.bk{display:flex;gap:18px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:12px;flex-wrap:wrap;align-items:flex-start}
+.bk.cancelled{opacity:.55}
+.bk-when{min-width:130px;text-align:center;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:10px}
+.bk-when .t{font-size:1.1rem;font-weight:700;color:var(--acc2);display:block}
+.bk-when .d{font-size:.8rem;color:var(--mut)}
+.bk-info{flex:1;min-width:220px}
+.bk-info strong{font-size:1.02rem}
+.bk-info .ct{direction:ltr;unicode-bidi:isolate;display:inline-block;color:var(--blue);font-size:.85rem;margin-inline-start:10px}
+.bk-info p{color:var(--mut);font-size:.9rem;margin-top:4px}
+.bk-side{display:flex;flex-direction:column;align-items:flex-end;gap:10px;min-width:130px}
+.badge{font-size:.75rem;font-weight:700;padding:4px 12px;border-radius:999px}
+.b-confirmed{background:rgba(45,212,191,.14);color:var(--acc2);border:1px solid rgba(45,212,191,.35)}
+.b-pending{background:rgba(251,191,36,.12);color:var(--gold);border:1px solid rgba(251,191,36,.35)}
+.b-cancelled{background:rgba(148,163,184,.12);color:var(--mut);border:1px solid var(--line2)}
+.bk-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.seg{display:inline-flex;background:var(--bg2);border:1px solid var(--line);border-radius:11px;padding:4px;gap:4px;margin-bottom:16px}
+.seg button{background:none;border:none;color:var(--mut);font-size:.85rem;font-weight:600;padding:7px 16px;border-radius:8px}
+.seg button.on{background:rgba(45,212,191,.14);color:var(--acc)}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:.85rem;color:var(--mut);margin-bottom:7px;font-weight:600}
+.check-row{display:flex;align-items:center;gap:10px;font-size:.95rem;cursor:pointer}
+.set-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-bottom:22px}
+.set-box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.set-box h3{font-size:1rem;margin-bottom:14px}
+.bk-chip{display:inline-flex;align-items:center;gap:10px;background:var(--bg2);border:1px solid rgba(248,113,113,.35);
+  color:var(--txt);border-radius:999px;padding:8px 16px;font-size:.88rem;margin:0 0 10px 10px}
+.bk-chip button{background:none;border:none;color:var(--red);font-weight:700}
+.empty{text-align:center;color:var(--mut);padding:36px 10px;border:1px dashed var(--line);border-radius:14px}
+
+/* ── PIN gate ── */
+.pin-gate{max-width:380px;margin:60px auto;text-align:center;background:var(--card);border:1px solid var(--line);
+  border-radius:20px;padding:40px 32px;box-shadow:var(--shadow)}
+.pin-gate .lock{width:60px;height:60px;margin:0 auto 18px;border-radius:18px;display:grid;place-items:center;
+  background:rgba(45,212,191,.09);border:1px solid rgba(45,212,191,.3);color:var(--acc)}
+.pin-gate h2{margin-bottom:6px}
+.pin-gate p{color:var(--mut);font-size:.9rem;margin-bottom:22px}
+.pin-gate.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(8px)}75%{transform:translateX(-8px)}}
+.pin-err{color:var(--red);font-size:.83rem;margin-top:10px;min-height:1.2em}
+
+/* ── Modal & toast ── */
+.overlay{position:fixed;inset:0;z-index:100;background:rgba(2,6,16,.72);-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);
+  display:grid;place-items:center;padding:20px}
+.overlay[hidden]{display:none}
+.modal{background:var(--card2);border:1px solid var(--line2);border-radius:20px;max-width:480px;width:100%;
+  max-height:88vh;overflow-y:auto;padding:28px;box-shadow:var(--shadow);animation:up .25s ease}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.modal h3{margin-bottom:4px}
+.modal .m-sub{color:var(--mut);font-size:.9rem;margin-bottom:20px;padding-bottom:16px;border-bottom:1px dashed var(--line)}
+.m-actions{display:flex;gap:10px;margin-top:22px}
+.m-actions .btn{flex:1}
+.ok-ic{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;margin:0 auto 18px;
+  background:rgba(45,212,191,.12);border:2px solid var(--acc);color:var(--acc);font-size:1.8rem}
+.toast{position:fixed;bottom:26px;inset-inline:0;margin-inline:auto;width:max-content;max-width:88vw;z-index:120;
+  background:#0F1B2E;border:1px solid var(--acc);color:var(--txt);border-radius:13px;padding:12px 22px;font-size:.92rem;
+  opacity:0;transform:translateY(14px);transition:.25s;pointer-events:none;box-shadow:var(--shadow)}
+.toast.show{opacity:1;transform:none}
+.toast.err{border-color:var(--red)}
+
+/* ── Reveal ── */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+@media (max-width:640px){
+  .nav-links{display:none}
+  .hero{padding:64px 0 48px}
+  .avatar{width:110px;height:110px}
+  .avatar-in{font-size:2.4rem}
+  .book-card{padding:18px}
+  .bk-side{align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ الموقع العام ══════════ -->
+<div id="publicView">
+
+<header id="topnav">
+  <div class="container nav-in">
+    <a class="brand" href="#top"><span class="brand-dot"></span>Eng.&nbsp;Mohamad</a>
+    <nav class="nav-links">
+      <a href="#services">الخدمات</a>
+      <a href="#skills">الخبرات</a>
+      <a href="#journey">المسيرة</a>
+      <a href="#faq">أسئلة شائعة</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn small" href="#booking">احجز جلسة</a>
+      <a class="icon-btn" href="#/admin" title="لوحة التحكم">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="container">
+      <div class="hero-flex">
+        <div class="hero-txt">
+          <span class="hero-badge"><span class="dot"></span>SOLUTION ARCHITECT MANAGER</span>
+          <h1>أحوّل الأفكار المعقّدة إلى <span class="grad">حلول تقنية واضحة</span> قابلة للتنفيذ</h1>
+          <p class="sub">Solution Architect Manager بخبرة في تصميم الأنظمة المؤسسية السحابية وقيادة فرق الهندسة — من الفكرة الأولى إلى الإطلاق.</p>
+          <div class="hero-cta">
+            <a class="btn" href="#booking">احجز جلسة معي</a>
+            <a class="btn ghost" href="#services">تعرّف على خدماتي</a>
+            <span class="avail-note" id="todayAvail"></span>
+          </div>
+        </div>
+        <div class="avatar"><div class="avatar-in">M</div></div>
+      </div>
+      <div class="stats rv">
+        <div class="stat"><b class="ltr">+12</b><span>سنة خبرة تقنية</span></div>
+        <div class="stat"><b class="ltr">+40</b><span>مشروعاً مؤسسياً</span></div>
+        <div class="stat"><b class="ltr">8</b><span>فرق هندسية قُدت</span></div>
+        <div class="stat"><b class="ltr">99.9%</b><span>توافر أنظمة صمّمتها</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <div class="sec-head rv">
+        <div class="kicker">الخدمات</div>
+        <h2>شنو أقدر أسوي لك ولشركتك؟</h2>
+        <p>من مراجعة المعمارية إلى قيادة التحول الرقمي — هذي المجالات اللي أشتغل فيها يومياً.</p>
+      </div>
+      <div class="grid3">
+        <div class="srv rv">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="m3 13 9 5 9-5"/></svg></div>
+          <h3>تصميم معماري للحلول</h3>
+          <p>أنظمة مؤسسية قابلة للتوسع من اليوم الأول — تصاميم مدروسة توازن بين السرعة والتكلفة والجودة.</p>
+        </div>
+        <div class="srv rv">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 0 0 .42-8.98 6 6 0 0 0-11.7 1.6A4 4 0 0 0 7 19h10.5Z"/></svg></div>
+          <h3>السحابة والترحيل</h3>
+          <p>خطط ترحيل آمنة إلى AWS و Azure بدون توقف، مع تحسين التكاليف وحوكمة الموارد.</p>
+        </div>
+        <div class="srv rv">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><circle cx="17" cy="9" r="2.6"/><path d="M15.8 14.6a4.8 4.8 0 0 1 4.7 4.4"/></svg></div>
+          <h3>قيادة الفرق التقنية</h3>
+          <p>بناء فرق هندسية عالية الأداء، وتأسيس ثقافة هندسية توصل — مقاييس واضحة وإيقاع ثابت.</p>
+        </div>
+        <div class="srv rv">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 13.6-5.7L20 8"/><path d="M20 4v4h-4"/><path d="M20 12a8 8 0 0 1-13.6 5.7L4 16"/><path d="M4 20v-4h4"/></svg></div>
+          <h3>التحول الرقمي</h3>
+          <p>خرائط طريق تنفيذية تربط التقنية بأهداف الأعمال — أولويات واقعية وعوائد قابلة للقياس.</p>
+        </div>
+        <div class="srv rv">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <h3>مراجعات المعمارية</h3>
+          <p>تقييم محايد للأنظمة القائمة يكشف المخاطر ونقاط الفشل قبل ما تكلفك غالي.</p>
+        </div>
+        <div class="srv rv">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z"/></svg></div>
+          <h3>استشارات تقنية تنفيذية</h3>
+          <p>جلسات مركزة مع الإدارة والفرق لاتخاذ قرارات تقنية صحيحة بثقة وبدون مبالغة.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="container">
+      <div class="sec-head rv">
+        <div class="kicker">الخبرات</div>
+        <h2>أدوات أشتغل بها كل يوم</h2>
+      </div>
+      <div class="chips rv">
+        <span class="chip">AWS</span><span class="chip">Microsoft Azure</span><span class="chip">Kubernetes</span>
+        <span class="chip">Microservices</span><span class="chip">Event-Driven Architecture</span><span class="chip">API Design</span>
+        <span class="chip">TOGAF</span><span class="chip">DevOps &amp; CI/CD</span><span class="chip">Security by Design</span>
+        <span class="chip">Cost Optimization</span><span class="chip">High Availability</span><span class="chip">Team Leadership</span>
+        <span class="chip">Stakeholder Management</span><span class="chip">Cloud Migration</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Journey -->
+  <section id="journey">
+    <div class="container">
+      <div class="sec-head rv">
+        <div class="kicker">المسيرة</div>
+        <h2>محطات مختصرة</h2>
+      </div>
+      <div class="tl rv">
+        <div class="tl-item">
+          <span class="when">الآن</span>
+          <h3>Solution Architect Manager</h3>
+          <p>قيادة فرق المعمارية وتصميم الحلول المؤسسية، واعتماد القرارات التقنية الكبرى مع الإدارة التنفيذية.</p>
+        </div>
+        <div class="tl-item">
+          <span class="when">مرحلة سابقة</span>
+          <h3>Senior Solution Architect</h3>
+          <p>تصميم أنظمة سحابية عالية التوافر تخدم آلاف المستخدمين، وقيادة مشاريع ترحيل واستحداث منصات.</p>
+        </div>
+        <div class="tl-item">
+          <span class="when">البداية</span>
+          <h3>Software Engineer</h3>
+          <p>أساس هندسي متين — من كتابة الكود إلى تشغيله في الإنتاج وفهم ما تحتاجه الأنظمة فعلاً لتصمد.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking -->
+  <section id="booking">
+    <div class="container">
+      <div class="sec-head rv">
+        <div class="kicker">الحجز</div>
+        <h2>احجز جلسة معي</h2>
+        <p>اختر اليوم والوقت المناسب لك — المواعيد الظاهرة هي المتاحة فعلياً حسب جدولي المحدّث، فما راح يصير تعارض.</p>
+      </div>
+      <div class="book-card rv">
+        <div class="book-meta">
+          <span>⏱ مدة الجلسة: <b><span id="bookDur">45</span> دقيقة</b></span>
+          <span>🕒 التوقيت: <b>الكويت (UTC+3)</b></span>
+          <span>✅ الأوقات المحجوزة تختفي تلقائياً</span>
+        </div>
+        <div id="dayChips" class="day-row"></div>
+        <div id="slotArea"><div class="hint">اختر يوماً من الأعلى لعرض الأوقات المتاحة</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="sec-head rv">
+        <div class="kicker">أسئلة شائعة</div>
+        <h2>قبل لا تحجز</h2>
+      </div>
+      <div class="rv">
+        <details>
+          <summary>كم مدة الجلسة؟</summary>
+          <div class="ans">مدة الجلسة الافتراضية 45 دقيقة، وتظهر لك كل الفترات المتاحة حسب هذا الإعداد.</div>
+        </details>
+        <details>
+          <summary>هل الحجز فوري؟</summary>
+          <div class="ans">طلبك يُسجَّل مباشرة ويظهر في لوحة التحكم، وتوصلك رسالة تأكيد بالتفاصيل.</div>
+        </details>
+        <details>
+          <summary>احتجت وقت خارج المواعيد المتاحة، شنو أسوي؟</summary>
+          <div class="ans">المواعيد المعروضة هي المتاحة حالياً فقط. إذا احتجت وقتاً مختلفاً، راسلني مباشرة ونرتب حل.</div>
+        </details>
+        <details>
+          <summary>أبي ألغي أو أعدّل موعدي، ممكن؟</summary>
+          <div class="ans">أكيد — بس راسلني قبل الموعد بأوقات كافية وأعدّل لك الجدول.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container foot-in">
+    <span>© 2026 Eng. Mohamad — جميع الحقوق محفوظة</span>
+    <a href="#/admin">لوحة التحكم</a>
+  </div>
+</footer>
+
+</div><!-- /publicView -->
+
+<!-- ══════════ لوحة التحكم ══════════ -->
+<div id="adminView" hidden>
+  <div class="container">
+
+    <div id="pinGate" class="pin-gate" hidden>
+      <div class="lock">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </div>
+      <h2>لوحة التحكم</h2>
+      <p>هذي المنطقة خاصة فيك — أدخل رمز الدخول</p>
+      <form id="pinForm">
+        <input type="password" id="pinInput" inputmode="numeric" autocomplete="off" placeholder="• • • •" style="text-align:center;font-size:1.3rem;letter-spacing:8px">
+        <div class="pin-err" id="pinErr"></div>
+        <button class="btn" type="submit" style="width:100%">دخول</button>
+      </form>
+      <p class="small mut" style="margin-top:18px"><a href="#booking" style="color:var(--acc)">← رجوع للموقع</a></p>
+    </div>
+
+    <div id="adminMain" hidden>
+      <div class="admin-top">
+        <div>
+          <h2>لوحة التحكم <span class="mut" style="font-size:.9rem;font-weight:400">— إدارة مواعيدك</span></h2>
+          <p class="mut small">حدد أيامك وأوقاتك المتاحة، وتابع الحجوزات كلها من هنا.</p>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn ghost small" href="#booking">عرض الموقع ↗</a>
+          <button class="btn danger small" id="lockBtn">قفل اللوحة</button>
+        </div>
+      </div>
+
+      <div class="stats3" id="adminStats"></div>
+
+      <div class="tabbar" id="tabbar">
+        <button class="tab on" data-tab="days">📅 الأيام والأوقات</button>
+        <button class="tab" data-tab="blackouts">🚫 أيام محظورة</button>
+        <button class="tab" data-tab="bookings">🗂 الحجوزات</button>
+        <button class="tab" data-tab="settings">⚙️ الإعدادات</button>
+      </div>
+
+      <div id="tab-days" class="tabpanel"></div>
+      <div id="tab-blackouts" class="tabpanel" hidden></div>
+      <div id="tab-bookings" class="tabpanel" hidden></div>
+      <div id="tab-settings" class="tabpanel" hidden></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="overlay" class="overlay" hidden><div class="modal" id="modalBox"></div></div>
+<div id="toast" class="toast"></div>
+
+<input type="file" id="importFile" accept="application/json" hidden>
+
+<script>
+'use strict';
+/* ═══════════ مساعدات ═══════════ */
+const $  = (s, el=document) => el.querySelector(s);
+const $$ = (s, el=document) => [...el.querySelectorAll(s)];
+const WD_AR = ['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const toMin = hm => { const [h,m] = hm.split(':').map(Number); return h*60+m; };
+const fromMin = v => String(Math.floor(v/60)).padStart(2,'0') + ':' + String(v%60).padStart(2,'0');
+const localDateStr = d => d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+const addDays = (d,n) => { const x = new Date(d); x.setDate(x.getDate()+n); return x; };
+const ARF = (d, opts) => new Intl.DateTimeFormat('ar-u-nu-latn', opts || {weekday:'long', day:'numeric', month:'long'}).format(d);
+function fmtTime12(hm){
+  let [h,m] = hm.split(':').map(Number);
+  const p = h >= 12 ? 'م' : 'ص';
+  h = h % 12; if (h === 0) h = 12;
+  return '<span class="ltr">' + h + ':' + String(m).padStart(2,'0') + ' ' + p + '</span>';
+}
+let toastTimer;
+function toast(msg, ok = true){
+  const t = $('#toast');
+  t.textContent = msg;
+  t.className = 'toast show' + (ok ? '' : ' err');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.className = 'toast', 2800);
+}
+
+/* ═══════════ البيانات ═══════════ */
+const KEY = 'sam_site_data_v1';
+let DB = null;
+
+function defaultData(){
+  const d = {
+    settings: { slotMinutes:45, windowDays:21, minNoticeMin:120, autoConfirm:true, pin:'1234' },
+    availability: {},
+    blackouts: [],
+    bookings: [],
+    seeded: false
+  };
+  [0,1,2,3].forEach(i => d.availability[i] = { on:true,  ranges:[['09:00','13:00'],['14:30','17:00']] });
+  d.availability[4] = { on:true,  ranges:[['09:00','14:00']] };
+  d.availability[5] = { on:false, ranges:[] };
+  d.availability[6] = { on:false, ranges:[] };
+  return d;
+}
+function seedDemo(){
+  const t = new Date();
+  const delta = (7 - t.getDay()) % 7 || 7;
+  const date = localDateStr(addDays(t, delta));
+  DB.bookings.push({ id:'demo1', date, time:'10:30', name:'عبدالله الراشد',
+    contact:'abdullah@example.com', topic:'مراجعة معمارية لمنصة جديدة', notes:'',
+    status:'confirmed', createdAt:new Date().toISOString() });
+}
+function loadDB(){
+  if (DB) return DB;
+  try { DB = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch(e){ DB = null; }
+  if (!DB || !DB.settings || !DB.availability){ DB = defaultData(); }
+  if (!DB.seeded){ seedDemo(); DB.seeded = true; }
+  persist();
+  return DB;
+}
+function persist(){
+  try { localStorage.setItem(KEY, JSON.stringify(DB)); } catch(e){ /* تخزين غير متاح — نكمل بالذاكرة */ }
+}
+
+/* ═══════════ منطق الفترات ═══════════ */
+function slotsForDate(dateStr){
+  const d = loadDB();
+  const day = d.availability[new Date(dateStr + 'T12:00:00').getDay()];
+  if (!day || !day.on || d.blackouts.includes(dateStr)) return [];
+  const dur = d.settings.slotMinutes;
+  const booked = d.bookings
+    .filter(b => b.date === dateStr && b.status !== 'cancelled')
+    .map(b => [toMin(b.time), toMin(b.time) + dur]);
+  const now = new Date();
+  const earliest = (dateStr === localDateStr(now))
+    ? now.getHours()*60 + now.getMinutes() + d.settings.minNoticeMin : -1;
+  const out = new Map();
+  for (const rg of day.ranges){
+    for (let t = toMin(rg[0]); t + dur <= toMin(rg[1]); t += dur){
+      if (t < earliest) continue;
+      if (booked.some(([bs,be]) => t < be && bs < t + dur)) continue;
+      out.set(fromMin(t), true);
+    }
+  }
+  return [...out.keys()].sort();
+}
+function nextDateForWeekday(wd){
+  const t = new Date();
+  for (let i = 0; i < 7; i++){
+    if (addDays(t,i).getDay() === wd) return localDateStr(addDays(t,i));
+  }
+  return localDateStr(t);
+}
+
+/* ═══════════ الموقع العام — الحجز ═══════════ */
+let selDate = null;
+
+function renderHeroNote(){
+  const n = slotsForDate(localDateStr(new Date())).length;
+  $('#todayAvail').innerHTML = n > 0
+    ? '🟢 متاح اليوم — <span class="ltr">' + n + '</span> فترة متبقية'
+    : '🟠 ما فيه مواعيد اليوم — شوف الأيام الجاية';
+}
+function renderBooking(){
+  const d = loadDB();
+  $('#bookDur').textContent = d.settings.slotMinutes;
+  const wrap = $('#dayChips');
+  let html = '';
+  for (let i = 0; i < d.settings.windowDays; i++){
+    const dt = addDays(new Date(), i);
+    const ds = localDateStr(dt);
+    const n = slotsForDate(ds).length;
+    const off = n === 0;
+    html += '<button class="day-chip' + (ds === selDate ? ' sel' : '') + '" data-date="' + ds + '"' + (off ? ' disabled' : '') + '>'
+      + '<span class="dc-wd">' + WD_AR[dt.getDay()] + '</span>'
+      + '<span class="dc-num ltr">' + dt.getDate() + '</span>'
+      + '<span class="dc-mo">' + ARF(dt, {month:'short'}) + '</span>'
+      + '<span class="dc-cnt">' + (off ? 'غير متاح' : '<span class="ltr">' + n + '</span> فترة') + '</span>'
+      + '</button>';
+  }
+  wrap.innerHTML = html;
+  if (selDate) renderSlots();
+  else $('#slotArea').innerHTML = '<div class="hint">اختر يوماً من الأعلى لعرض الأوقات المتاحة 👆</div>';
+}
+function renderSlots(){
+  const list = slotsForDate(selDate);
+  $('#slotArea').innerHTML = list.length
+    ? '<div class="slots">' + list.map(t =>
+        '<button class="slot" data-t="' + t + '">' + fmtTime12(t) + '</button>').join('') + '</div>'
+    : '<div class="hint">ما فيه فترات متاحة بهذا اليوم — جرّب يوم ثاني.</div>';
+}
+
+/* ═══════════ Modal ═══════════ */
+function openModal(html){
+  $('#modalBox').innerHTML = html;
+  $('#overlay').hidden = false;
+  document.body.classList.add('locked');
+}
+function closeModal(){
+  $('#overlay').hidden = true;
+  document.body.classList.remove('locked');
+}
+function openBookingModal(dateStr, time){
+  const d = loadDB();
+  openModal(
+    '<h3>حجز جلسة</h3>'
+    + '<div class="m-sub">📅 ' + ARF(new Date(dateStr + 'T12:00:00')) + ' — ⏰ ' + fmtTime12(time)
+    + ' · المدة <span class="ltr">' + d.settings.slotMinutes + '</span> دقيقة</div>'
+    + '<form id="bkForm" data-date="' + dateStr + '" data-time="' + time + '">'
+    + '<div class="field"><label>الاسم الكامل *</label><input id="bf-name" required placeholder="اسمك الكريم"></div>'
+    + '<div class="field"><label>بريد إلكتروني أو رقم جوال *</label><input id="bf-contact" required placeholder="example@mail.com"></div>'
+    + '<div class="field"><label>موضوع الجلسة *</label><input id="bf-topic" required placeholder="مثال: مراجعة معمارية لنظام سحابي"></div>'
+    + '<div class="field"><label>ملاحظات (اختياري)</label><textarea id="bf-notes" rows="2" placeholder="أي تفاصيل تحب أكون عارفها قبل الجلسة"></textarea></div>'
+    + '<div class="m-actions"><button class="btn" type="submit" id="bkSubmit">تأكيد الحجز</button>'
+    + '<button class="btn ghost" type="button" id="bkCancel">إلغاء</button></div>'
+    + '</form>'
+  );
+  $('#bkCancel').onclick = closeModal;
+  $('#bkForm').onsubmit = e => {
+    e.preventDefault();
+    const name = $('#bf-name').value.trim();
+    const contact = $('#bf-contact').value.trim();
+    const topic = $('#bf-topic').value.trim();
+    const notes = $('#bf-notes').value.trim();
+    if (name.length < 2 || contact.length < 5 || topic.length < 3){ toast('املأ الحقول المطلوبة بشكل صحيح', false); return; }
+    if (!slotsForDate(dateStr).includes(time)){ toast('للأسف هذي الفترة انحجزت للتو — اختر وقت ثاني', false); renderBooking(); closeModal(); return; }
+    const btn = $('#bkSubmit'); btn.disabled = true;
+    const db = loadDB();
+    db.bookings.push({
+      id: Date.now().toString(36) + Math.random().toString(36).slice(2,7),
+      date: dateStr, time, name, contact, topic, notes,
+      status: db.settings.autoConfirm ? 'confirmed' : 'pending',
+      createdAt: new Date().toISOString()
+    });
+    persist();
+    renderBooking();
+    renderHeroNote();
+    openModal(
+      '<div class="ok-ic">✓</div>'
+      + '<h3 style="text-align:center">تم استلام طلب الحجز</h3>'
+      + '<div class="m-sub" style="text-align:center;border:none;margin-bottom:8px">📅 ' + ARF(new Date(dateStr + 'T12:00:00'))
+      + ' — ⏰ ' + fmtTime12(time) + '</div>'
+      + '<p class="mut small" style="text-align:center;margin-bottom:6px">' + esc(name) + ' · ' + esc(topic) + '</p>'
+      + '<p class="small" style="text-align:center;color:' + (db.settings.autoConfirm ? 'var(--acc2)' : 'var(--gold)') + '">'
+      + (db.settings.autoConfirm ? '✅ حجزك مؤكد — أشوفك بالمعاد' : '🕐 طلبك بانتظار التأكيد وبيوصلك رد قريباً') + '</p>'
+      + '<div class="m-actions"><button class="btn" type="button" data-close="1">تم</button></div>'
+    );
+    $('#modalBox [data-close]').onclick = closeModal;
+    toast('تم الحجز بنجاح 🎉');
+  };
+}
+
+/* ═══════════ لوحة التحكم ═══════════ */
+let currentTab = 'days';
+let bkFilter = 'upcoming';
+
+function isAdminUnlocked(){ try { return sessionStorage.getItem('sam_unlock') === '1'; } catch(e){ return false; } }
+
+function initAdmin(){
+  const unlocked = isAdminUnlocked();
+  $('#pinGate').hidden = unlocked;
+  $('#adminMain').hidden = !unlocked;
+  if (unlocked){ renderStats(); renderTab(currentTab); }
+}
+function renderStats(){
+  const d = loadDB();
+  const today = localDateStr(new Date());
+  const up = d.bookings.filter(b => b.date >= today && b.status !== 'cancelled').length;
+  const pend = d.bookings.filter(b => b.status === 'pending').length;
+  const td = d.bookings.filter(b => b.date === today && b.status !== 'cancelled').length;
+  $('#adminStats').innerHTML =
+    '<div class="stat3"><b class="ltr">' + up + '</b><span class="mut small">حجوزات قادمة</span></div>'
+    + '<div class="stat3"><b class="ltr">' + td + '</b><span class="mut small">حجوزات اليوم</span></div>'
+    + '<div class="stat3' + (pend ? ' warn' : '') + '"><b class="ltr">' + pend + '</b><span class="mut small">بانتظار تأكيدك</span></div>';
+}
+function renderTab(tab){
+  currentTab = tab;
+  $$('.tab').forEach(t => t.classList.toggle('on', t.dataset.tab === tab));
+  ['days','blackouts','bookings','settings'].forEach(x => $('#tab-' + x).hidden = x !== tab);
+  if (tab === 'days') renderDaysTab();
+  else if (tab === 'blackouts') renderBlackoutsTab();
+  else if (tab === 'bookings') renderBookingsTab();
+  else renderSettingsTab();
+}
+
+/* ── تبويب الأيام والأوقات ── */
+function renderDaysTab(){
+  const d = loadDB();
+  $('#tab-days').innerHTML =
+    '<p class="mut small" style="margin-bottom:16px">فعّل الأيام اللي تلتقي فيها الناس، وحدد فترات الوقت لكل يوم. الزائر يشوف بس الفترات المفعّلة هنا.</p>'
+    + WD_AR.map((w, wd) => {
+      const a = d.availability[wd] || { on:false, ranges:[] };
+      const cnt = slotsForDate(nextDateForWeekday(wd)).length;
+      return '<div class="day-edit' + (a.on ? '' : ' off') + '">'
+        + '<div class="de-head">'
+        + '<label class="switch"><input type="checkbox" data-act="toggle-day" data-wd="' + wd + '"' + (a.on ? ' checked' : '') + '><span class="sl"></span></label>'
+        + '<div class="de-name">' + w + '<small>' + (a.on ? 'الأسبوع القادم: <span class="ltr">' + cnt + '</span> فترة متاحة' : 'معطّل — ما يظهر للزوار') + '</small></div>'
+        + '</div>'
+        + '<div class="de-ranges">'
+        + (a.ranges.map((r, ri) =>
+            '<div class="range-row">'
+            + '<input type="time" value="' + r[0] + '" data-act="range" data-wd="' + wd + '" data-ri="' + ri + '" data-se="0">'
+            + '<span class="arr">←</span>'
+            + '<input type="time" value="' + r[1] + '" data-act="range" data-wd="' + wd + '" data-ri="' + ri + '" data-se="1">'
+            + '<button class="xbtn" data-act="del-range" data-wd="' + wd + '" data-ri="' + ri + '" title="حذف الفترة">✕</button>'
+            + '</div>').join('') || '<span class="mut small">لا توجد فترات مضافة</span>')
+        + '</div>'
+        + (a.on ? '<button class="btn ghost tiny" data-act="add-range" data-wd="' + wd + '">+ إضافة فترة</button>' : '')
+        + '</div>';
+    }).join('');
+}
+
+/* ── تبويب الأيام المحظورة ── */
+function renderBlackoutsTab(){
+  const d = loadDB();
+  const list = [...d.blackouts].sort();
+  $('#tab-blackouts').innerHTML =
+    '<p class="mut small" style="margin-bottom:16px">حط هنا الإجازات والأيام اللي ما تبي أحد يحجز فيها (أعياد، التزامات، سفر...) وهذي الأيام تختفي نهائياً من صفحة الحجز.</p>'
+    + '<div class="set-box" style="max-width:420px;margin-bottom:22px">'
+    + '<div class="field" style="margin-bottom:12px"><label>أضف يوم محظور</label><input type="date" id="boDate"></div>'
+    + '<button class="btn small" data-act="add-blackout">+ حظر اليوم</button>'
+    + '</div>'
+    + (list.length
+        ? '<div>' + list.map(ds =>
+            '<span class="bk-chip">📌 ' + ARF(new Date(ds + 'T12:00:00'))
+            + '<button data-act="del-blackout" data-date="' + ds + '" title="إلغاء الحظر">✕</button></span>').join('') + '</div>'
+        : '<div class="empty">ما فيه أيام محظورة حالياً</div>');
+}
+
+/* ── تبويب الحجوزات ── */
+function renderBookingsTab(){
+  const d = loadDB();
+  const today = localDateStr(new Date());
+  const stAr = { confirmed:'مؤكدة', pending:'بانتظار التأكيد', cancelled:'ملغاة' };
+  const all = [...d.bookings].sort((a,b) => (a.date + a.time).localeCompare(b.date + b.time));
+  const rows = bkFilter === 'upcoming'
+    ? all.filter(b => b.date >= today && b.status !== 'cancelled')
+    : all;
+  $('#tab-bookings').innerHTML =
+    '<div class="seg"><button data-act="bk-filter" data-f="upcoming" class="' + (bkFilter === 'upcoming' ? 'on' : '') + '">القادمة</button>'
+    + '<button data-act="bk-filter" data-f="all" class="' + (bkFilter === 'all' ? 'on' : '') + '">الكل</button></div>'
+    + (rows.length
+      ? rows.map(b =>
+          '<div class="bk' + (b.status === 'cancelled' ? ' cancelled' : '') + '">'
+          + '<div class="bk-when"><span class="t">' + fmtTime12(b.time) + '</span><span class="d">' + ARF(new Date(b.date + 'T12:00:00'), {day:'numeric', month:'long'}) + '</span><span class="d mut">' + WD_AR[new Date(b.date + 'T12:00:00').getDay()] + '</span></div>'
+          + '<div class="bk-info"><strong>' + esc(b.name) + '</strong><span class="ct">' + esc(b.contact) + '</span>'
+          + '<p>💬 ' + esc(b.topic) + '</p>'
+          + (b.notes ? '<p class="small mut">📝 ' + esc(b.notes) + '</p>' : '')
+          + '</div>'
+          + '<div class="bk-side"><span class="badge b-' + b.status + '">' + stAr[b.status] + '</span>'
+          + '<div class="bk-actions">'
+          + (b.status === 'pending' ? '<button class="btn tiny" data-act="bk-status" data-id="' + b.id + '" data-st="confirmed">تأكيد ✓</button>' : '')
+          + (b.status !== 'cancelled' ? '<button class="btn ghost tiny" data-act="bk-status" data-id="' + b.id + '" data-st="cancelled">إلغاء</button>' : '')
+          + '<button class="btn danger tiny" data-act="bk-del" data-id="' + b.id + '">حذف</button>'
+          + '</div></div></div>').join('')
+      : '<div class="empty">ما فيه حجوزات هنا بعد</div>');
+}
+
+/* ── تبويب الإعدادات ── */
+function renderSettingsTab(){
+  const s = loadDB().settings;
+  $('#tab-settings').innerHTML =
+    '<div class="set-grid">'
+    + '<div class="set-box"><h3>⏱ إعدادات الحجز</h3>'
+    + '<div class="field"><label>مدة الجلسة الواحدة</label><select id="st-slot">'
+    + [30,45,60,90].map(v => '<option value="' + v + '"' + (s.slotMinutes === v ? ' selected' : '') + '>' + v + ' دقيقة</option>').join('')
+    + '</select></div>'
+    + '<div class="field"><label>أقصى مدى حجز مقدماً (أيام)</label><input type="number" id="st-window" min="7" max="60" value="' + s.windowDays + '"></div>'
+    + '<div class="field"><label>أقل فترة إشعار قبل الموعد</label><select id="st-notice">'
+    + [[0,'بدون إشعار'],[30,'30 دقيقة'],[60,'ساعة'],[120,'ساعتين'],[240,'4 ساعات'],[480,'8 ساعات']]
+        .map(([v,l]) => '<option value="' + v + '"' + (s.minNoticeMin === v ? ' selected' : '') + '>' + l + '</option>').join('')
+    + '</select></div>'
+    + '<label class="check-row"><input type="checkbox" id="st-auto"' + (s.autoConfirm ? ' checked' : '') + '> تأكيد الحجوزات تلقائياً</label>'
+    + '</div>'
+    + '<div class="set-box"><h3>🔐 الأمان والبيانات</h3>'
+    + '<div class="field"><label>رمز دخول اللوحة</label><input id="st-pin" value="' + esc(s.pin) + '" autocomplete="off"></div>'
+    + '<div class="field"><label>نسخة احتياطية</label><div style="display:flex;gap:8px;flex-wrap:wrap">'
+    + '<button class="btn ghost tiny" data-act="export">⬇ تصدير JSON</button>'
+    + '<button class="btn ghost tiny" data-act="import">⬆ استيراد</button>'
+    + '<button class="btn danger tiny" data-act="reset">مسح كل شيء</button>'
+    + '</div></div>'
+    + '<p class="small mut">البيانات محفوظة محلياً في هذا المتصفح. صدّر نسخة JSON بشكل دوري كنسخة احتياطية.</p>'
+    + '</div>'
+    + '</div>'
+    + '<button class="btn" data-act="save-settings">حفظ الإعدادات</button>';
+}
+
+/* ═══════════ التوجيه ═══════════ */
+function route(){
+  const isAdmin = location.hash.startsWith('#/admin');
+  $('#publicView').style.display = isAdmin ? 'none' : '';
+  $('#adminView').hidden = !isAdmin;
+  document.title = isAdmin ? 'لوحة التحكم — Eng. Mohamad' : 'Eng. Mohamad — Solution Architect Manager';
+  if (isAdmin) initAdmin();
+  else { renderBooking(); renderHeroNote(); }
+}
+window.addEventListener('hashchange', route);
+
+/* ═══════════ الأحداث ═══════════ */
+document.addEventListener('DOMContentLoaded', () => {
+  loadDB();
+
+  $('#dayChips').addEventListener('click', e => {
+    const b = e.target.closest('.day-chip');
+    if (!b || b.disabled) return;
+    selDate = b.dataset.date;
+    renderBooking();
+  });
+  $('#slotArea').addEventListener('click', e => {
+    const b = e.target.closest('.slot');
+    if (b) openBookingModal(selDate, b.dataset.t);
+  });
+
+  $('#overlay').addEventListener('click', e => { if (e.target === $('#overlay')) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#overlay').hidden) closeModal(); });
+
+  $('#pinForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const v = $('#pinInput').value;
+    if (v === loadDB().settings.pin){
+      try { sessionStorage.setItem('sam_unlock','1'); } catch(err){}
+      initAdmin();
+      toast('أهلاً بك 👋');
+    } else {
+      $('#pinErr').textContent = 'رمز غير صحيح، حاول مرة ثانية';
+      const g = $('#pinGate');
+      g.classList.remove('shake'); void g.offsetWidth; g.classList.add('shake');
+    }
+    $('#pinInput').value = '';
+  });
+  $('#lockBtn').addEventListener('click', () => {
+    try { sessionStorage.removeItem('sam_unlock'); } catch(err){}
+    currentTab = 'days';
+    initAdmin();
+    toast('تم قفل اللوحة');
+  });
+
+  $('#tabbar').addEventListener('click', e => {
+    const b = e.target.closest('.tab');
+    if (b) renderTab(b.dataset.tab);
+  });
+
+  $('#adminView').addEventListener('click', e => {
+    const b = e.target.closest('[data-act]');
+    if (!b) return;
+    const act = b.dataset.act;
+    const d = loadDB();
+
+    if (act === 'toggle-day') return; // يُعالج في change
+    if (act === 'add-range'){
+      d.availability[b.dataset.wd].ranges.push(['09:00','12:00']);
+      persist(); renderDaysTab(); return;
+    }
+    if (act === 'del-range'){
+      d.availability[b.dataset.wd].ranges.splice(+b.dataset.ri, 1);
+      persist(); renderDaysTab(); return;
+    }
+    if (act === 'add-blackout'){
+      const v = $('#boDate').value;
+      if (!v){ toast('اختر التاريخ أولاً', false); return; }
+      if (!d.blackouts.includes(v)) d.blackouts.push(v);
+      persist(); renderBlackoutsTab(); renderDaysTab(); toast('تم حظر اليوم — اختفى من صفحة الحجز'); return;
+    }
+    if (act === 'del-blackout'){
+      d.blackouts = d.blackouts.filter(x => x !== b.dataset.date);
+      persist(); renderBlackoutsTab(); renderDaysTab(); return;
+    }
+    if (act === 'bk-filter'){
+      bkFilter = b.dataset.f; renderBookingsTab(); return;
+    }
+    if (act === 'bk-status'){
+      const bk = d.bookings.find(x => x.id === b.dataset.id);
+      if (bk){ bk.status = b.dataset.st; persist(); renderBookingsTab(); renderStats(); renderBooking();
+        toast(b.dataset.st === 'confirmed' ? 'تم تأكيد الحجز ✓' : 'تم إلغاء الحجز'); }
+      return;
+    }
+    if (act === 'bk-del'){
+      if (confirm('متأكد من حذف هذا الحجز نهائياً؟')){
+        d.bookings = d.bookings.filter(x => x.id !== b.dataset.id);
+        persist(); renderBookingsTab(); renderStats(); renderBooking(); toast('تم الحذف');
+      }
+      return;
+    }
+    if (act === 'save-settings'){
+      const slot = +$('#st-slot').value;
+      const win = Math.min(60, Math.max(7, +$('#st-window').value || 21));
+      const notice = +$('#st-notice').value;
+      const pin = $('#st-pin').value.trim();
+      if (pin.length < 4){ toast('الرمز لازم يكون 4 خانات على الأقل', false); return; }
+      d.settings.slotMinutes = slot;
+      d.settings.windowDays = win;
+      d.settings.minNoticeMin = notice;
+      d.settings.autoConfirm = $('#st-auto').checked;
+      d.settings.pin = pin;
+      persist(); renderStats(); renderBooking(); renderHeroNote();
+      toast('تم حفظ الإعدادات ✓'); return;
+    }
+    if (act === 'export'){
+      const blob = new Blob([JSON.stringify(d, null, 2)], { type:'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'mohamad-booking-data.json';
+      a.click();
+      URL.revokeObjectURL(a.href);
+      toast('تم تصدير النسخة الاحتياطية ⬇'); return;
+    }
+    if (act === 'import'){ $('#importFile').click(); return; }
+    if (act === 'reset'){
+      if (confirm('هذا بيمسح كل الحجوزات والإعدادات نهائياً. متأكد؟')){
+        DB = defaultData(); DB.seeded = true; persist();
+        renderStats(); renderTab('days'); renderBooking(); renderHeroNote();
+        toast('تم مسح كل البيانات والرجوع للإعدادات الافتراضية');
+      }
+      return;
+    }
+  });
+
+  $('#adminView').addEventListener('change', e => {
+    const el = e.target;
+    const act = el.dataset.act;
+    if (act === 'toggle-day'){
+      const d = loadDB();
+      const a = d.availability[el.dataset.wd];
+      a.on = el.checked;
+      if (a.on && a.ranges.length === 0) a.ranges.push(['09:00','17:00']);
+      persist(); renderDaysTab(); renderBooking(); renderHeroNote(); renderStats(); return;
+    }
+    if (act === 'range'){
+      const d = loadDB();
+      const wd = el.dataset.wd, ri = +el.dataset.ri, se = +el.dataset.se;
+      const row = d.availability[wd].ranges[ri];
+      const cand = [...row]; cand[se] = el.value;
+      if (!cand[0] || !cand[1] || toMin(cand[0]) >= toMin(cand[1])){
+        toast('الوقت غير صالح — البداية لازم تسبق النهاية', false);
+        renderDaysTab(); return;
+      }
+      d.availability[wd].ranges[ri] = cand;
+      persist(); renderDaysTab(); renderBooking(); renderHeroNote(); return;
+    }
+  });
+
+  $('#importFile').addEventListener('change', e => {
+    const f = e.target.files[0];
+    if (!f) return;
+    const r = new FileReader();
+    r.onload = () => {
+      try {
+        const obj = JSON.parse(r.result);
+        if (!obj || !obj.settings || !obj.availability) throw new Error('bad');
+        obj.seeded = true;
+        DB = obj; persist();
+        renderStats(); renderTab(currentTab); renderBooking(); renderHeroNote();
+        toast('تم استيراد البيانات ✓');
+      } catch(err){ toast('الملف غير صالح — تأكد إنه ملف تصدير من نفس الموقع', false); }
+    };
+    r.readAsText(f);
+    e.target.value = '';
+  });
+
+  const io = new IntersectionObserver(es => es.forEach(en => {
+    if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+  }), { threshold:.12 });
+  $$('.rv').forEach(el => io.observe(el));
+
+  route();
+});
+</script>
+</body>
+</html>
