@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
+import { Analytics } from '@vercel/analytics/react';
 import { loadDatabase, saveDatabase, computeAvailableSlots, formatDateISO } from './services/storage';
 import { ThemeProvider } from './context/ThemeContext';
 import Navbar from './components/Navbar';
@@ -100,6 +102,10 @@ export default function App() {
 
         {/* Footer */}
         <Footer onAdminClick={() => handleSetView('admin')} />
+
+        {/* Vercel Speed Insights & Web Analytics */}
+        <SpeedInsights />
+        <Analytics />
 
       </div>
     </ThemeProvider>
